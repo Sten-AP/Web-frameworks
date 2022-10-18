@@ -13,8 +13,8 @@ export class TekstComponent implements OnInit {
 
   // moment().format("MMMM Do YYYY, h:mm:ss a");
   // moment().startOf("day").fromNow();
-
   this.tijd = moment().startOf("ss");
+
   setInterval(() => {
    this.tijd = moment().fromNow();
   }, 500);
