@@ -7,17 +7,12 @@ import * as moment from "moment";
  styleUrls: ["./tekst.component.css"],
 })
 export class TekstComponent implements OnInit {
- tijd: string = "";
+ tijd: number = 0;
  constructor() {
-  var moment = require("moment");
-
-  // moment().format("MMMM Do YYYY, h:mm:ss a");
-  // moment().startOf("day").fromNow();
-  this.tijd = moment().startOf("ss");
-
+  let moment = require("moment");
   setInterval(() => {
-   this.tijd = moment().fromNow();
-  }, 500);
+   this.tijd = Number(moment().startOf("hour").fromNow().slice(0, 2)) - Number(moment().format("mm"));
+  }, 30000);
  }
 
  ngOnInit(): void {}
