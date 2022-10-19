@@ -5,5 +5,8 @@
     "loadsh": "^0.0.4",
     "lodash": "^4.17.21",
     "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.186"
   }
 }
