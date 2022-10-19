@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "@angular/cli": "^14.2.6"
+    "@angular/cli": "^14.2.6",
+    "i": "^0.3.7",
+    "loadsh": "^0.0.4",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
   }
 }

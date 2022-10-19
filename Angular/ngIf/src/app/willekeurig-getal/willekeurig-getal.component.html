@@ -1,2 +1,4 @@
 <h3>Willekeurig getal</h3>
 <p>het resultaat van de test is : {{ randomGetal }} / 10</p>
+<p *ngIf="randomGetal < 4">Dit resultaat is ondermaats.</p>
+<p *ngIf="randomGetal > 7">Mooie score!</p>

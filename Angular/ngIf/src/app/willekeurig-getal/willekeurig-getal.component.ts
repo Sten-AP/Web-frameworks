@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import * as moment from "moment";
+import * as _ from "lodash";
 
 @Component({
  selector: "app-willekeurig-getal",
@@ -6,12 +8,10 @@ import { Component, OnInit } from "@angular/core";
  styleUrls: ["./willekeurig-getal.component.css"],
 })
 export class WillekeurigGetalComponent implements OnInit {
- randomGetal: number = Math.floor(Math.random() * 10);
+ randomGetal: number = _.random(1, 10);
 
  constructor() {
-  setInterval(() => {
-   this.randomGetal = Math.floor(Math.random() * 10);
-  }, 2000);
+  setInterval(() => (this.randomGetal = _.random(1, 10)), 2000);
  }
 
  ngOnInit(): void {}
