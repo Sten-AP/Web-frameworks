@@ -19,7 +19,6 @@ export class HetWeerComponent implements OnInit {
   setInterval(() => {
    for (let i = 0; i < this.gegevens.length; i++) {
     this.gegevens[i].graden = Math.floor(Math.random() * 25);
-    console.log(this.gegevens[i].graden % 5);
    }
   }, 2000);
  }
