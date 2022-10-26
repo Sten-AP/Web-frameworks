@@ -1,1 +1,7 @@
-<p>automerken works!</p>
+<h3>Automerken</h3>
+<ul *ngFor="let automerk of automerken">
+ <li>{{ automerk.merk }}</li>
+ <ul *ngFor="let model of automerk.model">
+  <li>{{ model }}</li>
+ </ul>
+</ul>

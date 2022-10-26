@@ -1,1 +1,10 @@
-<p>persoons-informatie works!</p>
+<h3>Persoonsinformatie</h3>
+
+<table *ngFor="let x of personen">
+ <tr>
+  <td>{{ x.voornaam }}</td>
+  <td>{{ x.naam }}</td>
+  <td>{{ x.geboortedatum }}</td>
+  <td>{{ x.leeftijd }}</td>
+ </tr>
+</table>

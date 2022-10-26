@@ -1,1 +1,15 @@
-<p>deelbaarheid works!</p>
+<h3>Deelbaarheid</h3>
+<table>
+ <div *ngFor="let getal of getallen; let i = index">
+  <tr *ngIf="i == 0">
+   <td style="font-weight: bold">Rang</td>
+   <td style="font-weight: bold">Getal</td>
+  </tr>
+
+  <tr *ngIf="getal % 2 == 0">
+   <td>{{ i + 1 }}</td>
+   <td *ngIf="getal <= 9">{{ getal }}</td>
+   <td *ngIf="getal > 9" style="font-weight: bold">{{ getal }}</td>
+  </tr>
+ </div>
+</table>
