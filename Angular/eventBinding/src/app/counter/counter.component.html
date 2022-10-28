@@ -1,3 +1,4 @@
 <h3>Counter</h3>
-<button type="button" [textContent]="counter"></button>
-<input type="number" [value]="SetCounter(value)" />
+
+<button type="button" (click)="changeVal()" [textContent]="button"></button>
+<input #val type="number" (change)="SetCounter(val.value)" [value]="counter" />

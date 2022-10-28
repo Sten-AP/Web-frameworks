@@ -1,14 +1,17 @@
 <h3>Het weer</h3>
 <table>
- <tr *ngFor="let x of gegevens">
-  <td>{{ x.land }}</td>
-  <td>{{ x.graden }}</td>
+  <tr *ngFor="let x of gegevens">
+    <td>{{ x.land }}</td>
+    <td>{{ x.graden }}</td>
 
-  <td *ngIf="x.graden == 0; else a">Kans op gladheid</td>
-  <ng-template #a><td *ngIf="x.graden >= 1 && x.graden <= 3; else b">Kans op sneeuw</td></ng-template>
-  <ng-template #b><td *ngIf="x.graden > 17; else leeg">Zacht weer</td></ng-template>
-  <ng-template #leeg><td></td></ng-template>
+    <td>
+      <p *ngIf="x.graden == 0">Kans op gladheid</p>
+      <p *ngIf="x.graden >= 1 && x.graden <= 3">Kans op sneeuw</p>
+      <p *ngIf="x.graden > 17">Zacht weer</p>
+    </td>
 
-  <td><img src="https://openweathermap.org/img/w/0{{ x.graden % 5 }}d.png" alt="" /></td>
- </tr>
+    <td>
+      <img src="https://openweathermap.org/img/w/0{{ x.graden % 5 }}d.png" alt="" />
+    </td>
+  </tr>
 </table>
