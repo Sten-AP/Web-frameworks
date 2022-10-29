@@ -4,6 +4,7 @@
     "i": "^0.3.7",
     "loadsh": "^0.0.4",
     "lodash": "^4.17.21",
+    "mathjs": "^11.3.2",
     "moment": "^2.29.4"
   },
   "devDependencies": {
