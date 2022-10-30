@@ -1,0 +1,10 @@
+<h3>Calculator</h3>
+
+<div class="calculator">
+ <input disabled type="text" [(ngModel)]="berekening" />
+ <table>
+  <tr *ngFor="let rij of rijen; let i = index">
+   <button (click)="action(item)" *ngFor="let item of rij">{{ item }}</button>
+  </tr>
+ </table>
+</div>

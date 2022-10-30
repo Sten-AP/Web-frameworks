@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Two_way_binging": {
+    "Parent_child": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/two-way-binging",
+            "outputPath": "dist/parent-child",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Two_way_binging:build:production"
+              "browserTarget": "Parent_child:build:production"
             },
             "development": {
-              "browserTarget": "Two_way_binging:build:development"
+              "browserTarget": "Parent_child:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Two_way_binging:build"
+            "browserTarget": "Parent_child:build"
           }
         },
         "test": {
@@ -99,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "8dc6af51-bed2-46cd-84f6-d5a78790128f"
+    "analytics": "1fa29afb-bf46-4fa2-b94a-79395036b569"
   }
 }

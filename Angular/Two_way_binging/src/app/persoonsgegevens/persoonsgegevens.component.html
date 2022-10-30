@@ -1,0 +1,17 @@
+<h3>Persoonsgegevens</h3>
+
+<input [(ngModel)]="naam" type="text" placeholder="Naam" />
+<input [(ngModel)]="achternaam" type="text" placeholder="Achternaam" />
+<br />
+<input [(ngModel)]="straatnaam" type="text" placeholder="Straatnaam" />
+<input [(ngModel)]="huisnummer" type="text" placeholder="Huisnummer" />
+<br />
+<input [(ngModel)]="stad" type="text" placeholder="Stad" />
+<br />
+<input (click)="bewaard = !bewaard" type="button" value="Bewaren" />
+
+<div *ngIf="bewaard">
+ <p>{{ achternaam }} {{ naam }}</p>
+ <p>{{ straatnaam }} {{ huisnummer }}</p>
+ <p>{{ stad }}</p>
+</div>
