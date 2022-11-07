@@ -1,0 +1,9 @@
+<app-random-numbers [_min]="_min" [_max]="_max" [_state]="_state"></app-random-numbers>
+
+<p>
+ Min: <input #valMin (change)="changeMin(valMin.value)" type="number" [value]="_min"/>
+ <br />
+ Max: <input #valMax (change)="changeMax(valMax.value)" type="number" [value]="_max"/>
+</p>
+
+<button (click)="changeState()" [textContent]="buttonState"></button>

@@ -1,0 +1,7 @@
+<app-todo-child [title]="title" [maxItems]="aantal"></app-todo-child>
+<br />
+<label for="title"><p>Tittel instellen</p></label>
+<input #val2 type="text" (change)="changeTitle(val2.value)" [value]="title" id="title" />
+
+<label for="aantal"><p>Max aantal instellen</p></label>
+<input #val type="number" id="aantal" (change)="changeAantal(val.value)" />

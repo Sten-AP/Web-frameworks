@@ -7,17 +7,15 @@ import { random } from "lodash";
  styleUrls: ["./random-numbers.component.css"],
 })
 export class RandomNumbersComponent implements OnInit {
- @Input() _min: number = 0;
- @Input() _max: number = 0;
+ @Input() public _min: number = 0;
+ @Input() public _max: number = 0;
  getal: number = 0;
 
- state: boolean = false;
- buttonState: string = "Start";
+ @Input() public _state: boolean = false;
 
  constructor() {
   setInterval(() => {
-   if (this.state) this.getal = random(this._min, this._max);
-   console.log(this.getal);
+   if (this._state) this.getal = random(this._min, this._max);
   }, 1000);
  }
 

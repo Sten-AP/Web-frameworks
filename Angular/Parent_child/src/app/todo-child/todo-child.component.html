@@ -1,1 +1,13 @@
-<p>todo-child works!</p>
+<h3>{{ title }}</h3>
+
+<input #item (input)="checkInput(item.value)" type="text" placeholder="Geef hier je item in" />
+<input [disabled]="!buttonState" (click)="addItem(item.value)" type="button" value="Voeg toe" />
+
+<p *ngIf="items.length == 0">Je lijst is momenteel leeg</p>
+<ol *ngIf="items.length != 0">
+  <li *ngFor="let item of items; let i = index">
+    {{ item }}
+    <input (click)="removeItem(i)" type="button" value="X" />
+  </li>
+</ol>
+
