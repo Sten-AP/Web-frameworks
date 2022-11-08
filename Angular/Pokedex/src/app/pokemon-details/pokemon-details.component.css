@@ -1,0 +1,13 @@
+div {
+ width: 30%;
+}
+
+.naam {
+ font-size: 25px;
+}
+
+.container {
+ margin-left: 20px;
+ display: flex;
+ flex-direction: row;
+}

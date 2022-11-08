@@ -1,0 +1,17 @@
+<h3>Movie Player</h3>
+
+<video id="video" (play)="videoState(true)" (pause)="videoState(false)" [width]="w" [height]="h" controls>
+ <source type="video/mp4" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+</video>
+<br />
+
+<select #res (change)="changeRes(res.value)">
+ <option res="640x360">640x360</option>
+ <option res="854x480">854x480</option>
+ <option res="1280x720">1280x720</option>
+ <option res="1600x900">1600x900</option>
+ <option res="1920x1080">1920x1080</option>
+</select>
+
+<input [disabled]="buttonState" (click)="videoState(true)" type="button" value="PLAY" />
+<input [disabled]="!buttonState" (click)="videoState(false)" type="button" value="PAUSE" />
