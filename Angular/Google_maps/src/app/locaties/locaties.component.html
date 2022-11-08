@@ -1,0 +1,7 @@
+<h3>Locaties</h3>
+
+<agm-map [latitude]="locx" [longitude]="locy">
+ <agm-marker *ngFor="let locatie of locaties" [latitude]="locatie.lat" [longitude]="locatie.lng"></agm-marker>
+</agm-map>
+
+<button *ngFor="let locatie of locaties; let i = index" (click)="moveMap(i)">{{ locatie.name }}</button>
