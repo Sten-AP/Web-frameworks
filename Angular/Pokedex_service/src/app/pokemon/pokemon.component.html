@@ -1,0 +1,13 @@
+<div class="container">
+ <div class="box" *ngFor="let pokemon of pokemons; let i = index">
+  <a (click)="getPokemonById(pokemon.id)" [routerLink]="pokemon.id">
+   {{ pokemon.name }}
+  </a>
+  <div class="control">
+   <button (click)="changeState(pokemon.id)" class="button is-primary">
+    <p *ngIf="favorited[i]" class="star collored">★</p>
+    <p *ngIf="!favorited[i]" class="star">★</p>
+   </button>
+  </div>
+ </div>
+</div>

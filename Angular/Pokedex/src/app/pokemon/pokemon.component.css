@@ -1,4 +1,14 @@
-div {
-	margin: auto;
-	width: 80%;
+.container {
+ display: flex;
+ flex-direction: column;
+ gap: 5px;
+}
+
+.box {
+ margin: auto;
+ width: 80%;
+}
+
+.box:hover {
+ background: rgba(120, 120, 120, 0.25);
 }

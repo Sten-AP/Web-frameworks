@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import * as math from "mathjs";
 
 @Injectable({
  providedIn: "root",

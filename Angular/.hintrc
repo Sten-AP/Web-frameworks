@@ -16,6 +16,7 @@
         "button-name": "off",
         "input-button-name": "off"
       }
-    ]
+    ],
+    "axe/text-alternatives": "off"
   }
 }
