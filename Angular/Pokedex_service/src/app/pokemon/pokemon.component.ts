@@ -8,7 +8,6 @@ import { PokedexService } from "../pokedex.service";
 })
 export class PokemonComponent implements OnInit {
  service: PokedexService;
- favorite: boolean = false;
 
  constructor(service: PokedexService) {
   this.service = service;

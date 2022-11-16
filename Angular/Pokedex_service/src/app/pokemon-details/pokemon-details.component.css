@@ -1,9 +1,13 @@
-div {
- width: 30%;
+.box {
+ width: 400px;
 }
 
 .naam {
  font-size: 25px;
+}
+
+.b {
+ margin-left: 10px;
 }
 
 .container {
@@ -20,6 +24,6 @@ div {
 .tag {
  background: #00d1b2;
  color: white;
- margin-top: 10px;
- margin-left: 10px;
+ justify-content: center;
+ margin: auto auto auto 10px;
 }
