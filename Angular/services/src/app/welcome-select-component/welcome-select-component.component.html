@@ -1,0 +1,3 @@
+<select [(ngModel)]="service.imgUrl">
+ <option *ngFor="let image of service.images; let i = index" value="{{ image }}">Image {{ i + 1 }}</option>
+</select>
