@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Pokedex": {
+    "Pokedex_HttpClientModule": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pokedex",
+            "outputPath": "dist/pokedex-http-client-module",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Pokedex:build:production"
+              "browserTarget": "Pokedex_HttpClientModule:build:production"
             },
             "development": {
-              "browserTarget": "Pokedex:build:development"
+              "browserTarget": "Pokedex_HttpClientModule:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -70,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Pokedex:build"
+            "browserTarget": "Pokedex_HttpClientModule:build"
           }
         },
         "test": {
@@ -89,6 +89,6 @@
     }
   },
   "cli": {
-    "analytics": "fa42efcb-eda8-4149-af1a-834998981ff8"
+    "analytics": "438c3ea5-8f1a-4a32-bce1-4cc8f8e8aca4"
   }
 }

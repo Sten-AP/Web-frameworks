@@ -1,0 +1,16 @@
+<div class="box container">
+ <div class="a">
+  <img src="{{ pokemons[id].sprites.animated }}" width="80px" />
+  <br />
+  <strong>Height: </strong>{{ pokemons[id].height }}
+  <br />
+  <strong>Weight: </strong>{{ pokemons[id].weight }}
+ </div>
+ <div class="b">
+  <div class="name">
+   <strong class="naam">{{ pokemons[id].name }}</strong>
+   <p *ngIf="favorited" class="tag">Favourite</p>
+  </div>
+  <p>#{{ id + 1 }}</p>
+ </div>
+</div>
