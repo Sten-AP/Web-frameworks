@@ -1,0 +1,9 @@
+<div class="container">
+  <div>
+    <input #gemeente class="input" type="text" />
+    <button (click)="getGemeente(gemeente.value)" class="button is-primary">Show weather</button>
+  </div>
+  <div class="box" *ngIf="data">
+		<img src="" alt="">
+	</div>
+</div>

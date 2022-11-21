@@ -8,6 +8,7 @@ import { DeLijnService, IDeLijn } from "../de-lijn.service";
 })
 export class BestemmingenComponent implements OnInit {
   lijst: IDeLijn;
+  bussen = [];
 
   constructor(private service: DeLijnService) {}
 

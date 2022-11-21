@@ -8,9 +8,10 @@ import { Observable } from "rxjs";
 export class DeLijnService {
   header = { "Ocp-Apim-Subscription-Key": "c789b014acc84b53adc4e3058d248e14" };
   entiteitnummer = 1;
-  haltenummer = 108395;
-  url = "https://api.delijn.be/DLKernOpenData/api/v1/haltes/" + this.entiteitnummer + "/" + this.haltenummer + "/real-time?maxAantalDoorkomsten=10"
-  
+  haltenummer = 105488;
+  doorkomsten = 10;
+  url = `https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${this.haltenummer}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`;
+
   constructor(private _http: HttpClient) {}
 
   get Lijst(): Observable<IDeLijn> {
