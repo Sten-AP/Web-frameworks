@@ -1,0 +1,12 @@
+<table class="table is-bordered is-striped is-narrow is-hoverable">
+  <tr>
+    <th>Lijn</th>
+    <th>Bestemming</th>
+    <th>Vertrek</th>
+  </tr>
+  <tr *ngFor="let x of lijst.halteDoorkomsten[0].doorkomsten">
+    <td>{{ x.lijnnummer }}</td>
+    <td>{{ x.bestemming }}</td>
+    <td>{{ x["real-timeTijdstip"] | date: "HH:mm" }}</td>
+  </tr>
+</table>
