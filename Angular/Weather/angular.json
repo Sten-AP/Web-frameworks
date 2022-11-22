@@ -19,7 +19,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css", "./node_modules/bulma/css/bulma.css"],
+            "styles": ["./node_modules/bulma/css/bulma.css", "src/styles.css"],
             "scripts": []
           },
           "configurations": {

@@ -10,3 +10,28 @@
 .box {
   margin-top: 25px;
 }
+
+.flexbox,
+.rij_1,
+.rij_2,
+.rij_3 {
+  display: flex;
+}
+
+.flexbox {
+  flex-direction: column;
+}
+
+.rij_1 {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rij_2 {
+  flex-direction: column;
+}
+
+.rij_3 {
+  flex-direction: row;
+  gap: 10px;
+}

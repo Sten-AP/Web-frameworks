@@ -3,7 +3,18 @@
     <input #gemeente class="input" type="text" />
     <button (click)="getGemeente(gemeente.value)" class="button is-primary">Show weather</button>
   </div>
-  <div class="box" *ngIf="data">
-		<img src="" alt="">
-	</div>
+
+  <div class="box flexbox" *ngIf="data">
+    <div class="rij_1">
+      <img [src]="imgUrl" />
+      <h2>
+        {{ gemeente.value }} <strong>({{ data.weather[0].description }})</strong>
+      </h2>
+    </div>
+    <p class="rij_2">🌡{{ data.main.temp - 273.15 | number: "1.0-0" }}</p>
+    <div class="rij_3">
+      <p>🔆{{ data.sys.sunrise * 1000 | date:'HH:mm'}}</p>
+      <p>🌙{{ data.sys.sunset * 1000 | date:'HH:mm'}}</p>
+    </div>
+  </div>
 </div>
