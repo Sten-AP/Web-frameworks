@@ -7,12 +7,13 @@ import { DeLijnService, IDeLijn } from "../de-lijn.service";
   styleUrls: ["./bestemmingen.component.css"],
 })
 export class BestemmingenComponent implements OnInit {
-  lijst: IDeLijn;
-  bussen = [];
+  lijst: any;
 
   constructor(private service: DeLijnService) {}
 
   ngOnInit(): void {
-    this.service.Lijst.subscribe((data) => (this.lijst = data));
+    this.service.Lijst.subscribe((data) => {
+      this.lijst = data.halteDoorkomsten[0].doorkomsten;
+    });
   }
 }
