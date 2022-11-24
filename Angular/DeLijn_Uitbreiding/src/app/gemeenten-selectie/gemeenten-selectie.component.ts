@@ -24,7 +24,7 @@ export class GemeentenSelectieComponent implements OnInit {
       }
     }
   }
-  
+
   ngOnInit(): void {
     this.gemeentenService.Ophalen();
   }

@@ -9,20 +9,22 @@ export class DeLijnService {
   entiteitnummer = 1;
   doorkomsten = 10;
 
-  bestemmingLijst: IDeLijn;
+  halteDoorkomsten: IHalteDoorkomsten;
+  bestemmingLijst: IDoorkomsten[];
 
   constructor(private _http: HttpClient) {}
 
-  GetLijst(id: number) {
+  GetBestemmingen(id: number) {
     let deLijnAPI = `https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${id}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`;
     return this._http.get<IDeLijn>(deLijnAPI, { headers: this.header }).toPromise();
   }
 
   async Ophalen(id: number) {
     console.log("Haltes ophalen");
-    await this.GetLijst(id)
+    await this.GetBestemmingen(id)
       .then((data) => {
-        if (typeof data != "undefined") this.bestemmingLijst = data;
+        if (typeof data != "undefined") this.halteDoorkomsten = data.halteDoorkomsten[0];
+        this.bestemmingLijst = this.halteDoorkomsten.doorkomsten
         console.log("Haltes zijn binnen");
       })
       .catch((error) => {

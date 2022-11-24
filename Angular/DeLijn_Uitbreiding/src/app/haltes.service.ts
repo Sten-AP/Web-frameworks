@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class HaltesService {
   header = { "Ocp-Apim-Subscription-Key": "c789b014acc84b53adc4e3058d248e14" };
 
-  halteLijst: any;
+  halteLijst: Halte[];
   geselecteerdeHalte: string;
 
   constructor(private _http: HttpClient) {}
@@ -21,7 +21,8 @@ export class HaltesService {
     console.log("Haltegegevens ophalen");
     await this.GetHaltes(id)
       .then((data) => {
-        if (typeof data != "undefined") this.halteLijst = data.haltes.sort((a, b) => a.omschrijving.localeCompare(b.omschrijving));
+        if (typeof data != "undefined") this.halteLijst = data.haltes;
+        this.halteLijst.sort((a, b) => (a.omschrijving < b.omschrijving ? -1 : 1))
         console.log("Haltegegevens zijn binnen");
       })
       .catch((error) => {

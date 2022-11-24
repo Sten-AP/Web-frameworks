@@ -21,7 +21,8 @@ export class GemeentenService {
     console.log("Gemeentegegevens ophalen");
     await this.GetGemeentes()
       .then((data) => {
-        if (typeof data != "undefined") this.gemeenteLijst = data.gemeenten.slice(1).sort((a, b) => a.omschrijving.localeCompare(b.omschrijving));
+        if (typeof data != "undefined") this.gemeenteLijst = data.gemeenten.slice(1);
+        this.gemeenteLijst.sort((a, b) => (a.omschrijving < b.omschrijving ? -1 : 1));
         console.log("Gemeentegegevens zijn binnen");
       })
       .catch((error) => {

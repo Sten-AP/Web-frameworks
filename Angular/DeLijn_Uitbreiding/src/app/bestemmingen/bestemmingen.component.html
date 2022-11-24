@@ -9,7 +9,7 @@
     <tr *ngFor="let x of lijst; let i = index">
       <td>{{ x.lijnnummer }}</td>
       <td>{{ x.bestemming }}</td>
-      <td>{{ tijden[i] }}</td>
+      <td>{{ getAankomst(x["real-timeTijdstip"]) }}</td>
     </tr>
   </table>
 </div>
