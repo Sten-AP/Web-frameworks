@@ -1,0 +1,4 @@
+<input [(ngModel)]="gemeentenService.geselecteerdeGemeente" (change)="selectGemeente(gemeentenService.geselecteerdeGemeente)" class="input is-link" type="text" list="gemeentes" placeholder="Gemeente"/>
+<datalist id="gemeentes">
+  <option *ngFor="let gemeente of gemeentes" [value]="gemeente.omschrijving | lowercase"></option>
+</datalist>

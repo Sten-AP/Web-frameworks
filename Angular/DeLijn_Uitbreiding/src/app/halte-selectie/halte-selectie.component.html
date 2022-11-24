@@ -1,0 +1,5 @@
+<div *ngIf="gemeentenService.geselecteerdeGemeente">
+  <select [(ngModel)]="haltesService.geselecteerdeHalte" (change)="selectHalte(haltesService.geselecteerdeHalte)" class="select">
+    <option *ngFor="let halte of halteLijst.sort()">{{ halte.omschrijving }}</option>
+  </select>
+</div>

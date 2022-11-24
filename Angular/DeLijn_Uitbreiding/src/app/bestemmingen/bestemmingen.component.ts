@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { DeLijnService, IDeLijn } from "../de-lijn.service";
-
+import { DeLijnService } from "../de-lijn.service";
+import { GemeentenService } from "../gemeenten.service";
 @Component({
   selector: "app-bestemmingen",
   templateUrl: "./bestemmingen.component.html",
@@ -8,38 +8,32 @@ import { DeLijnService, IDeLijn } from "../de-lijn.service";
 })
 export class BestemmingenComponent implements OnInit {
   lijst: any;
-  tijden: Date[];
-  dispTijden: any;
-  datum: Date = new Date();
+  tijden: string[];
+  moment = require("moment");
 
-  constructor(private service: DeLijnService) {
-    setInterval(() => {
-      this.getData();
-    }, 10000);
-  }
+  constructor(public deLijnService: DeLijnService) {}
 
-  ngOnInit(): void {
-    this.getData();
+  ngOnInit(): void {}
+
+  get Lijst() {
+    return this.deLijnService.bestemmingLijst;
   }
 
   getData() {
-    this.service.Lijst.subscribe((data) => {
-      this.lijst = data.halteDoorkomsten[0].doorkomsten;
-      this.tijden = [];
-      for (let i = 0; i < this.lijst.length; i++) {
-        this.tijden.push(new Date(this.lijst[i]["real-timeTijdstip"]));
+    this.lijst = this.Lijst;
+    this.tijden = [];
+    for (let i = 0; i < this.lijst.length; i++) {
+      if (this.moment(this.lijst[i]["real-timeTijdstip"]).format("HH:mm") == this.moment().format("HH:mm")) {
+        this.tijden.push("Geen tijd");
+      } else if (
+        this.moment(this.moment() - this.moment(this.lijst[i]["real-timeTijdstip"]))
+          .format("HH:mm")
+          .slice(0, -3) == "00"
+      ) {
+        this.tijden.push(60 - this.moment(this.moment() - this.moment(this.lijst[i]["real-timeTijdstip"])).format("mm") + "'");
+      } else {
+        this.tijden.push(this.moment(this.lijst[i]["real-timeTijdstip"]).format("HH:mm"));
       }
-      this.dispTijden = [];
-      for (let i = 0; i < this.tijden.length; i++) {
-        if (this.tijden[i] != undefined) {
-          if (this.tijden[i].getHours() == this.datum.getHours()) {
-            this.dispTijden.push(String(60 - this.tijden[i].getMinutes()));
-          } else {
-            this.dispTijden.push(`${this.tijden[i].getHours()}:${this.tijden[i].getMinutes()}`);
-          }
-        }
-      }
-      console.log(this.dispTijden);
-    });
+    }
   }
 }

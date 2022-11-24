@@ -1,12 +1,15 @@
-<table class="table is-bordered is-striped is-narrow is-hoverable">
-  <tr>
-    <th>Lijn</th>
-    <th>Bestemming</th>
-    <th>Vertrek</th>
-  </tr>
-  <tr *ngFor="let x of lijst; let i = index">
-    <td>{{ x.lijnnummer }}</td>
-    <td>{{ x.bestemming }}</td>
-    <td *ngIf="dispTijden[i].length <= 2">{{ dispTijden[i] }}'</td>
-  </tr>
-</table>
+<div class="table is-fullwidth" *ngIf="deLijnService.bestemmingLijst">
+  <h1 class="doorkomsten">Doorkomsten</h1>
+  <table>
+    <thead>
+      <td>Lijnnummer</td>
+      <td>Bestemming</td>
+      <td>Aankomst</td>
+    </thead>
+    <tr *ngFor="let x of lijst; let i = index">
+      <td>{{ x.lijnnummer }}</td>
+      <td>{{ x.bestemming }}</td>
+      <td>{{ tijden[i] }}</td>
+    </tr>
+  </table>
+</div>

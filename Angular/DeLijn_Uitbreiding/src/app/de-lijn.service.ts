@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -8,14 +7,27 @@ import { Observable } from "rxjs";
 export class DeLijnService {
   header = { "Ocp-Apim-Subscription-Key": "c789b014acc84b53adc4e3058d248e14" };
   entiteitnummer = 1;
-  haltenummer = 105488;
   doorkomsten = 10;
-  url = `https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${this.haltenummer}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`;
+
+  bestemmingLijst: IDeLijn;
 
   constructor(private _http: HttpClient) {}
 
-  get Lijst(): Observable<IDeLijn> {
-    return this._http.get<IDeLijn>(this.url, { headers: this.header });
+  GetLijst(id: number) {
+    let deLijnAPI = `https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${id}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`;
+    return this._http.get<IDeLijn>(deLijnAPI, { headers: this.header }).toPromise();
+  }
+
+  async Ophalen(id: number) {
+    console.log("Haltes ophalen");
+    await this.GetLijst(id)
+      .then((data) => {
+        if (typeof data != "undefined") this.bestemmingLijst = data;
+        console.log("Haltes zijn binnen");
+      })
+      .catch((error) => {
+        console.log("Er is een fout opgetreden");
+      });
   }
 }
 

@@ -4,9 +4,9 @@
     <th>Bestemming</th>
     <th>Vertrek</th>
   </tr>
-  <tr *ngFor="let x of lijst">
+  <tr *ngFor="let x of lijst; let i = index">
     <td>{{ x.lijnnummer }}</td>
     <td>{{ x.bestemming }}</td>
-    <td>{{ x["real-timeTijdstip"] | date: "HH:mm" }}</td>
+    <td>{{ tijden[i] }}</td>
   </tr>
 </table>

@@ -1,4 +1,22 @@
-.table th {
-  background: #00d1b2;
-  color: white;
+.table {
+  border: 2px solid #dbdbdb;
+  border-radius: 6.7px;
+}
+
+.doorkomsten {
+  font-weight: 500;
+  background-color: #485fc7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.75em;
+  color: #fff;
+  font-size: 20px;
+}
+
+table {
+  width: 99%;
+  margin: auto;
+  margin-bottom: -0.09em;
 }
