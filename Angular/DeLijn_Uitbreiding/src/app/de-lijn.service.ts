@@ -10,7 +10,8 @@ export class DeLijnService {
   doorkomsten = 10;
 
   halteDoorkomsten: IHalteDoorkomsten;
-  bestemmingLijst: IDoorkomsten[];
+  bestemmingLijst: IDoorkomsten[] = [];
+  checkId: number;
 
   constructor(private _http: HttpClient) {}
 
@@ -20,14 +21,16 @@ export class DeLijnService {
   }
 
   async Ophalen(id: number) {
+    this.checkId = id;
     console.log("Haltes ophalen");
     await this.GetBestemmingen(id)
       .then((data) => {
         if (typeof data != "undefined") this.halteDoorkomsten = data.halteDoorkomsten[0];
-        this.bestemmingLijst = this.halteDoorkomsten.doorkomsten
+        this.bestemmingLijst = this.halteDoorkomsten.doorkomsten;
         console.log("Haltes zijn binnen");
       })
       .catch((error) => {
+        this.bestemmingLijst = [];
         console.log("Er is een fout opgetreden");
       });
   }

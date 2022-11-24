@@ -9,7 +9,14 @@ export class BestemmingenComponent implements OnInit {
   tijden: string[];
   moment = require("moment");
 
-  constructor(public deLijnService: DeLijnService) {}
+  constructor(public deLijnService: DeLijnService) {
+    setInterval(() => {
+      if (deLijnService.bestemmingLijst.length > 0) this.getAankomst;
+    }, 5000);
+    setInterval(() => {
+      if (deLijnService.bestemmingLijst.length > 0) this.deLijnService.Ophalen(this.deLijnService.checkId);
+    }, 30000);
+  }
 
   ngOnInit(): void {}
 
@@ -18,9 +25,9 @@ export class BestemmingenComponent implements OnInit {
   }
 
   getAankomst(tijd: Date) {
-    let checkUur = this.moment(this.moment() - this.moment(tijd)).format("HH:mm");
-    if (this.moment(tijd).format("HH:mm") == this.moment().format("HH:mm")) return "Geen tijd";
-    if (checkUur.slice(0, -3) == "00") return 60 - this.moment(this.moment() - this.moment(tijd)).format("mm") + "'";
+    let checkUur = this.moment(this.moment() - this.moment(tijd)).format("HH");
+    if (this.moment(tijd) <= this.moment()) return "Geen tijd";
+    if (checkUur == "00") return 60 - this.moment(this.moment() - this.moment(tijd)).format("mm") + "'";
     return this.moment(tijd).format("HH:mm");
   }
 }
