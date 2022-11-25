@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { lastValueFrom } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -9,12 +10,12 @@ export class HaltesService {
 
   halteLijst: Halte[];
   geselecteerdeHalte: string;
+  temperatuur: number;
 
   constructor(private _http: HttpClient) {}
 
-  GetHaltes(id: number) {
-    let haltesAPI = `https://api.delijn.be/DLKernOpenData/v1/beta/gemeenten/${id}/haltes`;
-    return this._http.get<IHaltes>(haltesAPI, { headers: this.header }).toPromise();
+  GetHaltes(id: number): Promise<IHaltes> {
+    return lastValueFrom(this._http.get<IHaltes>(`https://api.delijn.be/DLKernOpenData/v1/beta/gemeenten/${id}/haltes`, { headers: this.header }));
   }
 
   async Ophalen(id: number) {
@@ -22,7 +23,7 @@ export class HaltesService {
     await this.GetHaltes(id)
       .then((data) => {
         if (typeof data != "undefined") this.halteLijst = data.haltes;
-        this.halteLijst.sort((a, b) => (a.omschrijving < b.omschrijving ? -1 : 1))
+        this.halteLijst.sort((a, b) => (a.omschrijving < b.omschrijving ? -1 : 1));
         console.log("Haltegegevens zijn binnen");
       })
       .catch((error) => {

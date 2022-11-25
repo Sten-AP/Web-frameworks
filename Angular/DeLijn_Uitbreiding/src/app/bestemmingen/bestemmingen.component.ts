@@ -27,7 +27,7 @@ export class BestemmingenComponent implements OnInit {
   getAankomst(tijd: Date) {
     let checkUur = this.moment(this.moment() - this.moment(tijd)).format("HH");
     if (this.moment(tijd) <= this.moment()) return "Geen tijd";
-    if (checkUur == "00") return 60 - this.moment(this.moment() - this.moment(tijd)).format("mm") + "'";
+    if (checkUur == "00") return (this.moment().format("mm") - this.moment(tijd).format("mm")) * -1 + " min";
     return this.moment(tijd).format("HH:mm");
   }
 }

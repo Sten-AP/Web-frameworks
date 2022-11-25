@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
+import { lastValueFrom } from "rxjs";
 @Injectable({
   providedIn: "root",
 })
@@ -10,11 +10,11 @@ export class GemeentenService {
 
   gemeenteLijst: Gemeenten[];
   geselecteerdeGemeente: string;
-
+  
   constructor(private _http: HttpClient) {}
 
-  GetGemeentes() {
-    return this._http.get<IGemeenten>(this.gemeenteLijstAPI, { headers: this.header }).toPromise();
+  GetGemeentes(): Promise<IGemeenten> {
+    return lastValueFrom(this._http.get<IGemeenten>(this.gemeenteLijstAPI, { headers: this.header }));
   }
 
   async Ophalen() {

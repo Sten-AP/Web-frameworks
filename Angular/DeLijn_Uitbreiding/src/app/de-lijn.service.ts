@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { lastValueFrom } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -15,9 +16,8 @@ export class DeLijnService {
 
   constructor(private _http: HttpClient) {}
 
-  GetBestemmingen(id: number) {
-    let deLijnAPI = `https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${id}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`;
-    return this._http.get<IDeLijn>(deLijnAPI, { headers: this.header }).toPromise();
+  GetBestemmingen(id: number): Promise<IDeLijn> {
+    return lastValueFrom(this._http.get<IDeLijn>(`https://api.delijn.be/DLKernOpenData/api/v1/haltes/${this.entiteitnummer}/${id}/real-time?maxAantalDoorkomsten=${this.doorkomsten}`, { headers: this.header }));
   }
 
   async Ophalen(id: number) {

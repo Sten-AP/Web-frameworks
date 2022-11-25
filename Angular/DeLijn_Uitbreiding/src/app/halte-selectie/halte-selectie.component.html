@@ -1,5 +1,5 @@
-<div *ngIf="gemeentenService.geselecteerdeGemeente">
-  <select [(ngModel)]="haltesService.geselecteerdeHalte" (change)="selectHalte(haltesService.geselecteerdeHalte)" class="select">
+<div class="box" *ngIf="gemeentenService.geselecteerdeGemeente">
+  <select [(ngModel)]="haltesService.geselecteerdeHalte" (change)="selectHalte(haltesService.geselecteerdeHalte)" class="select input">
     <option selected></option>
     <option *ngFor="let halte of halteLijst">{{ halte.omschrijving }}</option>
   </select>
