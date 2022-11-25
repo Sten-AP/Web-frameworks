@@ -1,4 +1,4 @@
-<div class="table is-fullwidth" *ngIf="deLijnService.bestemmingLijst.length > 0">
+<div class="table is-fullwidth" *ngIf="deLijnService.bestemmingLijst.length > 0 && gemeentenService.geselecteerdeGemeente.length > 0 && haltesService.geselecteerdeHalte != '' && haltesService.halteLijst.length > 0">
   <h1 class="doorkomsten">Doorkomsten</h1>
   <table>
     <thead>

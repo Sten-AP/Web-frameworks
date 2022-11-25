@@ -9,8 +9,8 @@ export class GemeentenService {
   gemeenteLijstAPI = "https://api.delijn.be/DLKernOpenData/v1/beta/gemeenten";
 
   gemeenteLijst: Gemeenten[];
-  geselecteerdeGemeente: string;
-  
+  geselecteerdeGemeente: string = "";
+
   constructor(private _http: HttpClient) {}
 
   GetGemeentes(): Promise<IGemeenten> {
@@ -26,6 +26,8 @@ export class GemeentenService {
         console.log("Gemeentegegevens zijn binnen");
       })
       .catch((error) => {
+        this.gemeenteLijst = [];
+        this.geselecteerdeGemeente = "";
         console.log("Er is een fout opgetreden");
       });
   }

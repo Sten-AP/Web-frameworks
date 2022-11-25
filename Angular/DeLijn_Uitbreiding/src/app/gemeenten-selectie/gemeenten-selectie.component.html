@@ -1,6 +1,7 @@
 <div class="container box">
   <input
     [(ngModel)]="gemeentenService.geselecteerdeGemeente"
+    (change)="deLijnService.bestemmingLijst = []"
     (change)="weerService.Ophalen(gemeentenService.geselecteerdeGemeente)"
     (change)="selectGemeente(gemeentenService.geselecteerdeGemeente)"
     class="input is-link"

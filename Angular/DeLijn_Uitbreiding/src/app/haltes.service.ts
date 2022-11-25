@@ -27,6 +27,7 @@ export class HaltesService {
         console.log("Haltegegevens zijn binnen");
       })
       .catch((error) => {
+        this.halteLijst = [];
         console.log("Er is een fout opgetreden");
       });
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DeLijnService } from "../de-lijn.service";
+import { GemeentenService } from "../gemeenten.service";
+import { HaltesService } from "../haltes.service";
 @Component({
   selector: "app-bestemmingen",
   templateUrl: "./bestemmingen.component.html",
@@ -9,7 +11,7 @@ export class BestemmingenComponent implements OnInit {
   tijden: string[];
   moment = require("moment");
 
-  constructor(public deLijnService: DeLijnService) {
+  constructor(public deLijnService: DeLijnService, public gemeentenService: GemeentenService, public haltesService: HaltesService) {
     setInterval(() => {
       if (deLijnService.bestemmingLijst.length > 0) this.getAankomst;
     }, 5000);
