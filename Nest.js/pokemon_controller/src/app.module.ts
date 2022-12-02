@@ -1,21 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PokemonDataService } from './pokemon-data/pokemon-data.service';
-import { RouterModule } from '@nestjs/router';
+import { PokemonServiceService } from './pokemon_service/pokemon_service.service';
+import { PokemonModule } from './pokemon/pokemon.module';
 @Module({
-  imports: [
-    RouterModule.forRoot(
-      [
-        { path: '', redirectTo: 'home', pathMatch: 'full' },
-        { path: 'home' },
-        { path: 'pokemon' },
-        { path: 'pokemon/:id' },
-      ],
-      { useHash: true },
-    ),
-  ],
+  imports: [PokemonModule],
   controllers: [AppController],
-  providers: [AppService, PokemonDataService],
+  providers: [PokemonServiceService],
 })
 export class AppModule {}
