@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+}
+
+.box:hover {
+  background: rgba(120, 120, 120, 0.25);
+}
+
+.star {
+	margin-bottom: 4px;
+  font-size: 25px;
+}
+
+.collored {
+  color: orange;
+}
+
+.box-header {
+  display: flex;
+  gap: 20px;
+}
+
+.delete {
+  margin: auto;
+}
