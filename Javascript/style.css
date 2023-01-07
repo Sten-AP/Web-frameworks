@@ -1,0 +1,30 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+:root {
+ --bg: rgb(255, 255, 255);
+ --bg-red: red;
+ --font: verdana, arial, helvetica;
+}
+
+html:focus-within {
+ scroll-behavior: smooth;
+}
+
+body {
+ background-color: var(--bg);
+ margin: 0;
+ padding: 0;
+ list-style: none;
+ font-family: var(--font);
+}
+
+.vierkant {
+ display: block;
+ background-color: var(--bg-red);
+ width: 200px;
+ height: 200px;
+}
+
+.hidden {
+ display: none;
+}

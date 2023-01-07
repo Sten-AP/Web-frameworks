@@ -1,0 +1,1 @@
+coffee,10;tea,20;lemonade,30;beer,45;wine,32;whiskey,88

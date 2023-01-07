@@ -1,0 +1,14 @@
+:root {
+	--bg: rgb(255, 255, 255);
+}
+
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--bg);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
