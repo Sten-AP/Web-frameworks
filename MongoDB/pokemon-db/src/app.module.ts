@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PokemonService } from './pokemon/pokemon.service';
 import { PokemonController } from './pokemon/pokemon.controller';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [],
-  controllers: [AppController, PokemonController],
-  providers: [AppService, PokemonService],
+  imports: [MongooseModule.forRoot(process.env.MONGODB_URI)],
+  controllers: [PokemonController],
+  providers: [PokemonService],
 })
 export class AppModule {}
