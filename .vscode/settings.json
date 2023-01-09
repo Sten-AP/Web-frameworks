@@ -1,4 +1,5 @@
 {
   "vsicons.presets.angular": true,
-  "vsicons.presets.nestjs": true
+  "vsicons.presets.nestjs": true,
+  "git.ignoreLimitWarning": true
 }
