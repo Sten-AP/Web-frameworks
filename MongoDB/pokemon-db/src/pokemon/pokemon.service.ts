@@ -3,7 +3,7 @@ import { Pokemon } from './pokemon.interface';
 
 @Injectable()
 export class PokemonService {
-  pokemons: Pokemon[] = [];
+  pokemons: Pokemon[];
 
   getAllPokemon(): Pokemon[] {
     return this.pokemons;
